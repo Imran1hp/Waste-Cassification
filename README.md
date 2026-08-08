@@ -104,17 +104,11 @@ The dataset contains waste and non-waste images from real-world visual condition
 Images were resized to:
 
 ```text
-224 × 224 pixels
+256 × 256 pixels
 ```
 
 The model uses ImageNet normalization:
 
-```python
-transforms.Normalize(
-    mean=[0.485, 0.456, 0.406],
-    std=[0.229, 0.224, 0.225]
-)
-```
 
 Training augmentation included horizontal flipping:
 
@@ -136,11 +130,11 @@ Training was performed using **PyTorch** on **Google Colab** with an NVIDIA Tesl
 | Weights | ImageNet pretrained |
 | Task | Binary classification |
 | Classes | 2 |
-| Input size | 224 × 224 |
+| Input size | 256 × 256 |
 | Optimizer | Adam |
-| Learning rate | 0.001 |
+| Learning rate | 0.0001 |
 | Loss function | CrossEntropyLoss |
-| Batch size | 32 |
+| Batch size | 64 |
 | Training images | ~20,000 |
 | Test images | ~3,000 |
 | GPU | NVIDIA Tesla T4 |
@@ -156,7 +150,7 @@ Optimizer:
 ```python
 optimizer = torch.optim.Adam(
     params=model.parameters(),
-    lr=0.001
+    lr=0.0001
 )
 ```
 
